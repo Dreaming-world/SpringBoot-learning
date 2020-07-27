@@ -8,6 +8,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 /**
  * @author liuxiangfeng
  */
@@ -19,16 +21,9 @@ public class GetEsConfig {
 
     private String host;
     private Integer port;
+    private String robot;
     private Cluster cluster;
 
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
 
     public Integer getPort() {
         return port;
@@ -38,15 +33,6 @@ public class GetEsConfig {
         this.port = port;
     }
 
-    @Override
-    public String toString() {
-        return "GetEsConfig{" +
-                "host='" + host + '\'' +
-                ", port=" + port +
-                ", cluster=" + cluster +
-                '}';
-    }
-
     public void setCluster(Cluster cluster) {
         this.cluster = cluster;
     }
@@ -54,6 +40,35 @@ public class GetEsConfig {
     public Cluster getCluster() {
         return this.cluster;
     }
+
+
+    @Override
+    public String toString() {
+        return "GetEsConfig{" +
+                "host=" + host +
+                ", port=" + port +
+                ", robot=" + robot +
+                ", cluster=" + cluster +
+                '}';
+    }
+
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getHost() {
+        return this.host;
+    }
+
+    public void setRobot(String robot) {
+        this.robot = robot;
+    }
+
+    public String getRobot() {
+        return this.robot;
+    }
+
 
     public static class Cluster {
         private String name;

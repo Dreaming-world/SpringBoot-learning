@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+
 @SpringBootTest
 class DemoApplicationTests {
 
@@ -21,7 +23,8 @@ class DemoApplicationTests {
         GetEsConfig.Cluster cluster = getEsConfig.getCluster();
         String name = cluster.getName();
         System.out.println(name);
-
+        System.out.println(getEsConfig.getHost());
+        System.out.println(getEsConfig.getRobot());
         System.out.println(getEsConfig);
 
     }
