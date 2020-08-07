@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.algorithms.AlgorithmsInterface;
 import com.example.demo.algorithms.AlgorithmsSet;
+import com.example.demo.algorithms.impl.BertSimilarImpl;
 import com.example.demo.dto.GetEsConfig;
 import com.example.demo.manager.GetSimilarResult;
 import org.apache.catalina.Cluster;
@@ -61,6 +62,16 @@ class DemoApplicationTests {
         GetSimilarResult getSimilarResult = new GetSimilarResult();
         String[] maxScoreQa = getSimilarResult.getMaxScoreQa(scores, compareList);
         System.out.println(Arrays.toString(maxScoreQa));
+
+    }
+
+    @Test
+    public void testBert() {
+        String[] comparesList = {"hello", "you"};
+        String query = "hello";
+        AlgorithmsInterface algorithmsInterface = algorithmsSet.getAlgorithm("bert");
+        System.out.println(algorithmsInterface.getName());
+        algorithmsInterface.similarScores(query, comparesList);
 
     }
 
